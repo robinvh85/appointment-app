@@ -28,14 +28,21 @@ export const buildTimeList = (start: string, end: string, lapTime: number) => {
   return result;
 }
 
-export const buildPosition = (start: string, step: number, event: any) => {  
+export const buildPosition = (start: string, end: string, step: number, event: any) => {  
   const startHours = parseInt(start.split(':')[0]);
   const startMins = parseInt(start.split(':')[1]);
-  const date = moment(event.from);
-  const startTime = date.startOf('day').hour(startHours).minutes(startMins);
+  const startTime = moment().startOf('day').hour(startHours).minutes(startMins);
 
-  const startPosition = moment.duration(event.from.diff(startTime)).asMinutes() / step;
-  const endPosition = moment.duration(event.to.diff(event.from)).asMinutes() / step;
+  const eventFromHours = parseInt(event.from.split(':')[0]);
+  const eventFromMins = parseInt(event.from.split(':')[1]);
+  const eventFromTime = moment().startOf('day').hour(eventFromHours).minutes(eventFromMins);
+
+  const eventToHours = parseInt(event.to.split(':')[0]);
+  const eventToMins = parseInt(event.to.split(':')[1]);
+  const eventToTime = moment().startOf('day').hour(eventToHours).minutes(eventToMins);
+
+  const startPosition = moment.duration(eventFromTime.diff(startTime)).asMinutes() / step;
+  const endPosition = moment.duration(eventToTime.diff(eventFromTime)).asMinutes() / step;
 
   return {
     top: HEADER_HEIGHT + FIRST_CELL_HEIGHT + startPosition * CELL_HEIGHT,

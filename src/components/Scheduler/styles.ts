@@ -86,4 +86,5 @@ export const Event = styled.div`
   color: #FFFFFF;
   box-sizing: border-box;
   white-space: pre-line;
+  font-size: 13px;
 `;

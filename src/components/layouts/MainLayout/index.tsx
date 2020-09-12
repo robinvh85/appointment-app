@@ -1,22 +1,26 @@
 import React from 'react';
+import { Layout } from 'antd';
 
-import { Wrapper, Body, Header, Footer } from './styles';
+import { Wrapper } from './styles';
 import TopMenu from 'components/layouts/TopMenu';
 
+const { Header, Footer, Content } = Layout;
+
 type Props = {
-  children: any
 }
 
-const MainLayout = ({ children }: Props) => {
+const MainLayout: React.FC<Props> = ({ children }) => {
   return (
     <Wrapper>
-      <Header>
-        <TopMenu />
-      </Header>
-      <Body>
-        { children }
-      </Body>
-      <Footer>Footer</Footer>
+      <Layout>
+        <Header>
+          <TopMenu />
+        </Header>
+        <Content>
+          { children }
+        </Content>
+        <Footer>Footer</Footer>
+      </Layout>
     </Wrapper>
   );
 }

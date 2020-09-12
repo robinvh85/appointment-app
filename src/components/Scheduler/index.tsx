@@ -48,7 +48,9 @@ const Scheduler: React.FC<Props> = ({start='07:00', end='22:00', step=30, column
       }
       {
         events.map((event, index) => (
-          <Event style={ buildPosition(start, end, step, event) } key={index}>{ `${event.from} - ${event.to}\n${event.content}` }</Event>  
+          <Event style={ buildPosition(start, step, event) } key={index}>
+            { `${event.from.format('HH:mm')} - ${event.to.format('HH:mm')}\n${event.content}` }
+          </Event>  
         ))
       }
     </Wrapper>
