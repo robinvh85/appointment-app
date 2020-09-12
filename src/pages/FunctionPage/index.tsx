@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { Calendar } from 'antd';
+import Cookies from 'js-cookie';
 
 import MainLayout from 'components/layouts/MainLayout';
 import Scheduler from 'components/Scheduler';
@@ -38,6 +39,8 @@ const SchedulerPage: React.FC<Props> = () => {
   const [selectedDate, setSelectedDate] = useState(moment());
 
   const onDateChanged = (value: any) => {
+    const globalVars = require('../../App/GlobalVars')
+    Cookies.remove(globalVars.GlobalVars.loginCookie);
     setSelectedDate(value);
   }
 

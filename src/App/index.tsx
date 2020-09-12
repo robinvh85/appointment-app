@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 
-import history from 'browserHistory';
+// import history from 'browserHistory';
 import PreLoginApp from './PostLoginApp';
 import PostLoginApp from './PostLoginApp';
 
@@ -15,14 +15,14 @@ const App = () => {
     </div>
   );
 
-  return (
-    <Router history={history}>
-      <Switch>
-        <Route path='/' exact component={HomePage} />
-        <Route path='/login' exact component={LoginPage} />
-      </Switch>
-    </Router>
-  )
+  // return (
+  //   <Router history={history}>
+  //     <Switch>
+  //       <Route path='/' exact component={HomePage} />
+  //       <Route path='/login' exact component={LoginPage} />
+  //     </Switch>
+  //   </Router>
+  // )
 
 }
 
