@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'pages/FunctionPage/node_modules/moment';
 
 export const HEADER_HEIGHT = 30;
 export const FIRST_CELL_HEIGHT = 10;
@@ -20,7 +20,7 @@ export const buildTimeList = (start: string, end: string, lapTime: number) => {
   var totalMinutes = duration.asMinutes();
   const result = [startTime.format('HH:mm')];
 
-  for(let i = 0; i < totalMinutes / lapTime; i++ ) {
+  for (let i = 0; i < totalMinutes / lapTime; i++) {
     startTime.add(lapTime, 'minutes');
     result.push(startTime.format('HH:mm'));
   }
@@ -28,7 +28,7 @@ export const buildTimeList = (start: string, end: string, lapTime: number) => {
   return result;
 }
 
-export const buildPosition = (start: string, step: number, event: any) => {  
+export const buildPosition = (start: string, step: number, event: any) => {
   const startHours = parseInt(start.split(':')[0]);
   const startMins = parseInt(start.split(':')[1]);
   const date = moment(event.from);

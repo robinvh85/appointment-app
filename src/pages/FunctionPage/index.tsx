@@ -33,7 +33,7 @@ const events = [
 
 type Props = {};
 
-const HomePage: React.FC<Props> = () => {
+const SchedulerPage: React.FC<Props> = () => {
   const [activeEvents, setActiveEvents] = useState([]);
   const [selectedDate, setSelectedDate] = useState(moment());
 
@@ -44,7 +44,7 @@ const HomePage: React.FC<Props> = () => {
   useEffect(() => {
     const filteredEvents: any = events.filter(
       (event: any) => {
-        return selectedDate.format(DATE_FORMAT) === event.from.format(DATE_FORMAT); 
+        return selectedDate.format(DATE_FORMAT) === event.from.format(DATE_FORMAT);
       }
     );
     setActiveEvents(filteredEvents);
@@ -53,25 +53,25 @@ const HomePage: React.FC<Props> = () => {
   return (
     <MainLayout>
       <Wrapper>
-      <LeftContent>
-        <div style={{textAlign: 'left', padding: '8px', color: 'black', fontStyle: 'italic'}}>
-          (Data sample have on days 09/12, 09/13, 09/14 and 09/15)
+        <LeftContent>
+          <div style={{ textAlign: 'left', padding: '8px', color: 'black', fontStyle: 'italic' }}>
+            (Data sample have on days 09/12, 09/13, 09/14 and 09/15)
         </div>
-        <Calendar 
-          fullscreen={false}  
-          value={selectedDate}
-          onChange={onDateChanged} 
-        />
-      </LeftContent>
-      <RightContent>
-        <Scheduler 
-          columns={columns} 
-          events={activeEvents} 
-        />
-      </RightContent>
+          <Calendar
+            fullscreen={false}
+            value={selectedDate}
+            onChange={onDateChanged}
+          />
+        </LeftContent>
+        <RightContent>
+          <Scheduler
+            columns={columns}
+            events={activeEvents}
+          />
+        </RightContent>
       </Wrapper>
     </MainLayout>
   )
 }
 
-export default HomePage;
+export default SchedulerPage;

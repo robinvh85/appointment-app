@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from 'antd';
+import { Layout } from 'pages/FunctionPage/node_modules/antd';
 
 import { Wrapper } from './styles';
 import TopMenu from 'components/layouts/TopMenu';
@@ -17,7 +17,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
           <TopMenu />
         </Header>
         <Content>
-          { children }
+          {children}
         </Content>
         <Footer>Footer</Footer>
       </Layout>
