@@ -5,7 +5,7 @@ import MainLayout from 'components/layouts/MainLayout';
 const CientsPage = () => {
   return (
     <MainLayout>
-      Homepage
+      CientsPage
     </MainLayout>
   )
 }

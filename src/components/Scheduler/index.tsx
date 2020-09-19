@@ -5,6 +5,7 @@ import {
   Wrapper, 
   Column,
   TimeColumn,
+  Body
 } from './styles';
 import { buildTimeList, buildPosition } from './helper';
 
@@ -14,45 +15,48 @@ type Props = {
   end?: any;
   columns: Array<any>;
   events: Array<any>;
+  style?: any;
 }
 
-const Scheduler: React.FC<Props> = ({start='07:00', end='22:00', step=30, columns=[], events=[]}) => {
+const Scheduler: React.FC<Props> = ({start='07:00', end='22:00', step=30, columns=[], events=[], style}) => {
   const timeList = buildTimeList(start, end, step);
 
   return (
-    <Wrapper>
-      <TimeColumn>
-        <div className="header"></div>
-        <div className="first-cell"></div>
+    <Wrapper style={style}>
+      <Body>
+        <TimeColumn>
+          <div className="header"></div>
+          <div className="first-cell"></div>
+          {
+            timeList.map((time, index) => (
+              <div className='cell' key={index}>
+                <div className='content'>{ time }</div>
+              </div>
+            ))
+          }
+        </TimeColumn>
+
         {
-          timeList.map((time, index) => (
-            <div className='cell' key={index}>
-              <div className='content'>{ time }</div>
-            </div>
+          columns.map((column, index) => (
+            <Column key={index}>
+              <div className="header">{ column.text }</div>
+              <div className="first-cell"></div>
+              {
+                timeList.map((_, index) => (
+                  <div className='cell' key={index}>{}</div>
+                ))
+              }
+            </Column>
           ))
         }
-      </TimeColumn>
-
-      {
-        columns.map((column, index) => (
-          <Column key={index}>
-            <div className="header">{ column.text }</div>
-            <div className="first-cell"></div>
-            {
-              timeList.map((_, index) => (
-                <div className='cell' key={index}>{}</div>
-              ))
-            }
-          </Column>
-        ))
-      }
-      {
-        events.map((event, index) => (
-          <Event style={ buildPosition(start, step, event) } key={index}>
-            { `${event.from.format('HH:mm')} - ${event.to.format('HH:mm')}\n${event.content}` }
-          </Event>  
-        ))
-      }
+        {
+          events.map((event, index) => (
+            <Event style={ buildPosition(start, step, event) } key={index}>
+              { `${event.from.format('HH:mm')} - ${event.to.format('HH:mm')}\n${event.content}` }
+            </Event>  
+          ))
+        }
+      </Body>
     </Wrapper>
   )
 }
