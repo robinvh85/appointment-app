@@ -13,10 +13,16 @@ const borderColor = '#DDDDDD';
 
 export const Wrapper = styled.div`
   border: 1px solid ${borderColor};
-  margin-left: 50px;
-  position: relative;
-  display: flex;
+  border-right: 0px;
   font-size: 14px;
+  background: white;
+  overflow-x: auto;
+  display: inline-block;
+`;
+
+export const Body = styled.div`
+  position: relative;
+  display: inline-flex;
 `;
 
 export const TimeColumn = styled.div`

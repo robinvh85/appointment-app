@@ -2,10 +2,10 @@ import React from 'react';
 import { Layout } from 'antd';
 
 import { Wrapper } from './styles';
-import TopMenu from 'components/layouts/TopMenu';
+import SideBar from './Sidebar';
+import Header from './Header';
 
-const { Header, Footer, Content } = Layout;
-
+const { Footer, Content } = Layout;
 type Props = {
 }
 
@@ -13,13 +13,20 @@ const MainLayout: React.FC<Props> = ({ children }) => {
   return (
     <Wrapper>
       <Layout>
-        <Header>
-          <TopMenu />
-        </Header>
-        <Content>
-          { children }
-        </Content>
-        <Footer>Footer</Footer>
+        <Header />
+        <Layout style={{ padding: '8px 0px', minHeight: '100vh' }}>
+          <SideBar />
+          <Layout>
+            <Content style={{padding: 16}}>
+              <>
+                { children }
+              </>
+            </Content>
+            <Footer style={{ textAlign: 'center' }}>
+              Appointment ©2020
+            </Footer>
+          </Layout>
+        </Layout>
       </Layout>
     </Wrapper>
   );

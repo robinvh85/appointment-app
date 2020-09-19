@@ -2,12 +2,12 @@ import React from 'react';
 
 import MainLayout from 'components/layouts/MainLayout';
 
-const CientsPage = () => {
+const EmployeesPage = () => {
   return (
     <MainLayout>
-      Homepage
+      EmployeesPage
     </MainLayout>
   )
 }
 
-export default CientsPage;
+export default EmployeesPage;

@@ -1,33 +1,29 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-  background-color: white;
-  width: 100%;
-  position: relative;
-
   .ant-layout-header {
     background-color: #108ee9;
-    color: #FFFFFF;
+    padding: 0;
+    color: white;
+    position: relative;
 
-    a {
-      color: #FFFFFF;
+    .logo {
+      margin-left: 20px;
+    }
+
+    .profile {
+      color: white;
+      position: absolute;
+      right: 20px;
+      top: 0px;
+      font-size: 26px;
+      cursor: pointer;
     }
   }
 
-  .ant-layout-content { }
-
-  .ant-layout-footer {
-    background-color: #108ee9;
-    color: #FFFFFF;
+  .ant-menu-item {
+    .anticon {
+      font-size: 20px;
+    }
   }
-`;
-
-export const Menu = styled.div`
-`;
-
-export const Body = styled.div`
-  background-color: #FFFFFF;
-  /* height: 80vh; */
-  padding-top: 50px;
-  padding-bottom: 50px;
 `;
