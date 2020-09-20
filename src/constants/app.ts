@@ -1,4 +1,4 @@
-export const API_DOMAIN = 'http://192.168.1.55:8081';
+export const API_DOMAIN = 'http://vietraspi.ddns.net:8081';
 export const APP_NAME = 'BookMe';
 export const TRIAL_ALLOWED = 1;
 export const MAINTENANCE_MODE = false;
