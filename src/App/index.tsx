@@ -7,6 +7,7 @@ import LoginPage from 'pages/LoginPage';
 import AppointmentsPage from 'pages/AppointmentsPage';
 import EmployeesPage from 'pages/EmployeesPage';
 import CientsPage from 'pages/CientsPage';
+import SignupPage from 'pages/SignupPage';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/appointments' exact component={AppointmentsPage} />
         <Route path='/employees' exact component={EmployeesPage} />
         <Route path='/clients' exact component={CientsPage} />
+        <Route path='/signup' exact component={SignupPage} />
       </Switch>
     </Router>
   ) 

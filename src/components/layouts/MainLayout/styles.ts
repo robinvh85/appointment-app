@@ -2,22 +2,28 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
   .ant-layout-header {
-    background-color: #108ee9;
+    background-color: white;
     padding: 0;
-    color: white;
+    color: grey;
     position: relative;
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.20));
 
     .logo {
+      color: #1890ff;
       margin-left: 20px;
     }
 
     .profile {
-      color: white;
+      color: #1890ff;
       position: absolute;
       right: 20px;
       top: 0px;
-      font-size: 26px;
-      cursor: pointer;
+
+      & > svg {
+        margin-top: 18px;
+        font-size: 26px;
+        cursor: pointer;
+      }
     }
   }
 
