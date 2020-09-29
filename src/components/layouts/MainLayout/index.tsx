@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Layout } from 'antd';
+import { get } from 'lodash';
 
+import Spin from 'components/Spin';
+import { StateContext } from 'store/contexts';
 import { Wrapper } from './styles';
 import SideBar from './Sidebar';
 import Header from './Header';
 
 const { Footer, Content } = Layout;
-type Props = {
-}
 
-const MainLayout: React.FC<Props> = ({ children }) => {
+const MainLayout: React.FC<any> = ({ children }) => {
+  // eslint-disable-next-line 
+  const { state, dispatch } = useContext(StateContext);
+  const [ loading, setLoading ] = useState(false);
+
+  useEffect(() => {
+    if(state) setLoading(get(state, ['common', 'loading']));
+  }, [state]);
+
   return (
     <Wrapper>
       <Layout>
@@ -18,9 +27,9 @@ const MainLayout: React.FC<Props> = ({ children }) => {
           <SideBar />
           <Layout>
             <Content style={{padding: 16}}>
-              <>
+              <Spin loading={loading}>
                 { children }
-              </>
+              </Spin>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
               Appointment ©2020

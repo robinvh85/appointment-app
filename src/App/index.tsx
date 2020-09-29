@@ -1,26 +1,17 @@
-import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import React, { useReducer } from 'react';
 
-import history from 'browserHistory';
-import HomePage from 'pages/HomePage';
-import LoginPage from 'pages/LoginPage';
-import AppointmentsPage from 'pages/AppointmentsPage';
-import EmployeesPage from 'pages/EmployeesPage';
-import CientsPage from 'pages/CientsPage';
-import SignupPage from 'pages/SignupPage';
+import appReducer from 'store/appReducer';
+import { StateContext } from 'store/contexts';
+import Routers from './routers';
+import { appState } from 'store/appReducer';
 
 const App = () => {
+  const [ state, dispatch ] = useReducer(appReducer, appState);
+
   return (
-    <Router history={history}>
-      <Switch>
-        <Route path='/' exact component={HomePage} />
-        <Route path='/login' exact component={LoginPage} />
-        <Route path='/appointments' exact component={AppointmentsPage} />
-        <Route path='/employees' exact component={EmployeesPage} />
-        <Route path='/clients' exact component={CientsPage} />
-        <Route path='/signup' exact component={SignupPage} />
-      </Switch>
-    </Router>
+    <StateContext.Provider value={{state, dispatch}}>
+      <Routers />
+    </StateContext.Provider>
   ) 
 }
 
