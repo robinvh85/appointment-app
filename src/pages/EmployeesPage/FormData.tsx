@@ -1,7 +1,5 @@
 import React, { useRef } from 'react';
-import { Form, Input, message, Modal } from 'antd';
-import axios from 'axios';
-import { API_DOMAIN, MESSAGE_DELAY_TIME } from 'constants/app';
+import { Form, Input, Modal } from 'antd';
 
 const layout = {
   labelCol: { span: 8 },
@@ -10,24 +8,21 @@ const layout = {
 
 type Props = {
   visible: boolean;
+  values?: any;
   onCancel: () => void;
-  onSuccess: () => void;
-  onError?: () => void;
+  onCreate?: (values: any) => void;
+  onUpdate?: (values: any) => void;
 }
 
-const FormData: React.FC<Props> = ({ visible, onCancel, onSuccess, onError }) => {
+const FormData: React.FC<Props> = ({ visible, values, onCancel, onCreate, onUpdate }) => {
   const formRef = useRef(null);
 
   const onFinish = (values: any) => {
-    axios.post(`${API_DOMAIN}/employees`, values)
-    .then(function (response) {
-      message.success('Success', MESSAGE_DELAY_TIME);
-      onSuccess();
-    })
-    .catch(function (error) {
-      message.error('There are some errors', MESSAGE_DELAY_TIME);
-      onError && onError();
-    });
+    if(values.id) {
+      onUpdate && onUpdate(values);
+    } else {
+      onCreate && onCreate(values);
+    }
   };
 
   const handleOk = () => {
@@ -47,7 +42,10 @@ const FormData: React.FC<Props> = ({ visible, onCancel, onSuccess, onError }) =>
         name="basic"
         onFinish={onFinish}
         ref={formRef}
+        initialValues={values}
       >
+        <Form.Item name="id" hidden={true}>
+        </Form.Item>
         <Form.Item
           label="Name"
           name="name"

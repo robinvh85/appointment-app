@@ -1,24 +1,40 @@
 import React from 'react';
-import { Table } from 'antd';
 
-const columns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  }];
+import BasicTable from 'components/BasicTable';
 
-const List: React.FC<any> = ({data}) => {
+type Props = {
+  data: any[];
+  onDelete?: (record: any) => void;
+  onEdit?: (record: any) => void;
+}
+
+const List: React.FC<Props> = ({data, onDelete, onEdit}) => {
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    }];
+  
+  const handleEdit = (record: any) => {
+    onEdit && onEdit(record);
+  }
+
+  const handleDelete = (record: any) => {
+    onDelete && onDelete(record);
+  }
+
   return (
-    <Table 
+    <BasicTable 
       columns={columns} 
-      dataSource={data} 
-      pagination={false}
+      data={data} 
+      onDelete={handleDelete}
+      onEdit={handleEdit}
     />
   )
 }

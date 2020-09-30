@@ -8,4 +8,3 @@ export const getList = (data: any): IAction => (
     payload: data
   }
 )
-

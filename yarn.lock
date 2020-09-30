@@ -4858,6 +4858,11 @@ extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
+fast-deep-equal@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
+  integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
+
 fast-deep-equal@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.1.tgz#545145077c501491e33b15ec408c294376e94ae4"
@@ -9762,6 +9767,13 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-i
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-request-hook@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-request-hook/-/react-request-hook-2.1.1.tgz#4c4270f3e987bfb897ebf2b1cdd8c230593b10fc"
+  integrity sha512-O+ALtgc4/rEc3eVzemk/r7lnuKn+on0exeQLm6ghCtqEeaxb96zidUN3WuQKCws8oTq+H4ByVpr2bm8ZCCAmVA==
+  dependencies:
+    fast-deep-equal "^2.0.1"
 
 react-router-dom@^5.2.0:
   version "5.2.0"

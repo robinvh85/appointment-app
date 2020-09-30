@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import 'assets/styles/App.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { RequestProvider } from 'react-request-hook';
+import axios from 'axios';
+import { API_DOMAIN } from 'constants/app';
+
+const axiosInstance = axios.create({
+  baseURL: API_DOMAIN
+})
 
 ReactDOM.render( 
   // <React.StrictMode>
-    <App />,
+  <RequestProvider value={axiosInstance}>
+    <App />
+  </RequestProvider>,
   // </React.StrictMode>,
   document.getElementById('root')
 );
